@@ -1,0 +1,17 @@
+/* Estilos de Tipografía y Clases Personalizadas */
+body { 
+    font-family: system-ui, -apple-system, sans-serif; 
+}
+.hover-card:hover {
+    /* Animación suave para las tarjetas */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Consulta de Medios para Impresión */
+@media print { 
+    /* Ocultar botones y elementos de navegación al imprimir (para PDF) */
+    .no-print {
+        display: none !important;
+    }
+}
