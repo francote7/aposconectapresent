@@ -1,17 +1,57 @@
-/* Estilos de Tipografía y Clases Personalizadas */
+/* Estilos Base */
 body { 
     font-family: system-ui, -apple-system, sans-serif; 
 }
-.hover-card:hover {
-    /* Animación suave para las tarjetas */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+/* Ocultar scrollbar en la navegación de tabs pero permitir scroll */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* Consulta de Medios para Impresión */
+/* Animación de entrada para el contenido de los tabs */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Estilos de botones de tab activos vs inactivos para hover */
+.tab-btn:hover:not(.active-tab) {
+    background-color: rgba(249, 115, 22, 0.05); /* Orange muy suave */
+}
+
+/* Ajustes de Impresión */
 @media print { 
-    /* Ocultar botones y elementos de navegación al imprimir (para PDF) */
     .no-print {
         display: none !important;
+    }
+    
+    /* En impresión, mostramos todos los tabs uno tras otro */
+    .tab-content {
+        display: block !important;
+        margin-bottom: 2rem;
+        page-break-inside: avoid;
+    }
+    
+    .tab-btn {
+        display: none; /* Ocultar botones de navegación al imprimir */
+    }
+    
+    header {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+        color: black !important;
+        background: white !important;
+    }
+    
+    body {
+        background: white;
     }
 }

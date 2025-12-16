@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APOS Conecta - Proyecto</title>
+    <title>APOS Conecta | HSDU - Innovación en Salud</title>
     
-    <!-- 1. Importamos Tailwind CSS desde CDN para los estilos de utilidad -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- 2. Configuración de Tailwind para usar los colores personalizados (CRÍTICO: debe estar aquí) -->
     <script>
         tailwind.config = {
             theme: {
@@ -21,7 +19,11 @@
                             500: '#f97316',
                             600: '#ea580c',
                             700: '#c2410c',
+                            800: '#9a3412',
                             900: '#7c2d12',
+                        },
+                        slate: {
+                            850: '#1e293b' 
                         }
                     }
                 }
@@ -29,63 +31,41 @@
         }
     </script>
     
-    <!-- 3. Enlace al archivo CSS externo (para estilos personalizados y media queries) -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- 4. Importamos Iconos (Librería Lucide) -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-neutral-50 text-neutral-600 selection:bg-orange-200 selection:text-orange-900">
+<body class="bg-gray-50 text-slate-700 font-sans antialiased selection:bg-orange-200 selection:text-orange-900 flex flex-col min-h-screen">
 
-    <!-- HEADER -->
-    <header class="bg-gradient-to-r from-neutral-900 to-orange-900 text-white py-16 px-6 relative overflow-hidden">
-        <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
-            <i data-lucide="activity" width="400" height="400"></i>
+    <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-orange-900 text-white pt-16 pb-24 px-6 relative overflow-hidden shadow-2xl flex-shrink-0">
+        <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4 pointer-events-none">
+            <i data-lucide="network" width="600" height="600"></i>
         </div>
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-                <div>
-                    <span class="bg-orange-500/20 text-orange-200 text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block border border-orange-400/30">
-                        Fundación H. Barceló
-                    </span>
-                    <h1 class="text-4xl md:text-6xl font-extrabold mb-2 leading-tight">
-                        APOS <span class="text-orange-500">CONECTA</span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-orange-100 font-light max-w-2xl">
-                        Plataforma Integral de Historia de Salud Digital Unificada
-                    </p>
-                </div>
-                
-                <div class="flex flex-col items-end gap-4">
-                    <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 text-sm min-w-[250px]">
-                        <div class="space-y-2">
-                            <div class="flex justify-between">
-                                <span class="text-orange-200">Alumno:</span>
-                                <span class="font-semibold text-white">Franco Testa</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-orange-200">Profesor:</span>
-                                <span class="font-semibold text-white">Lic. Javier Romero</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-orange-200">Fecha:</span>
-                                <span class="font-semibold text-white">Dic 2025</span>
-                            </div>
-                        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
+                <div class="lg:w-3/4">
+                    <div class="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-400/30 text-orange-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-6 backdrop-blur-sm">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                        Seminario Integrador 2025
                     </div>
+                    
+                    <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight tracking-tight">
+                        APOS <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-200">CONECTA</span>
+                    </h1>
+                    
+                    <h2 class="text-xl md:text-2xl text-gray-300 font-light max-w-3xl mb-6">
+                        Plataforma de Historia de Salud Digital Unificada (HSDU).
+                    </h2>
+                    
+                    <p class="text-gray-400 max-w-2xl leading-relaxed mb-8">
+                        Un ecosistema de interoperabilidad diseñado para garantizar la soberanía de los datos, la seguridad jurídica y la eficiencia prestacional en La Rioja.
+                    </p>
 
-                    <!-- BOTONES DE ACCIÓN - La clase no-print está en CSS -->
-                    <div class="flex flex-wrap gap-3 justify-end no-print">
-                        <!-- Botón 1: Acceso a Plataforma -->
-                        <a href="../index.html" target="_blank" class="group flex items-center gap-2 bg-white text-orange-700 hover:bg-orange-50 px-5 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-black/20 text-sm border border-white/50 hover:scale-105 active:scale-95">
-                            <i data-lucide="external-link" width="18" height="18"></i>
-                            Acceder a Plataforma
-                        </a>
-
-                        <!-- Botón 2: Descargar PDF (Con ID para JS) -->
-                        <button id="printButtonHeader" class="group flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white px-5 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-orange-900/20 text-sm border border-orange-400/20 hover:scale-105 active:scale-95">
-                            <i data-lucide="file-down" width="18" height="18" class="group-hover:animate-bounce"></i>
-                            Descargar PDF
+                    <div class="flex flex-wrap gap-4 no-print">
+                        <button id="printButtonHeader" class="group flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg shadow-orange-900/30 border border-orange-400/20 hover:scale-105">
+                            <i data-lucide="printer" width="18"></i>
+                            Imprimir Reporte
                         </button>
                     </div>
                 </div>
@@ -93,302 +73,265 @@
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-12 space-y-16">
+    <main class="max-w-6xl mx-auto px-4 -mt-16 relative z-20 pb-20 flex-grow w-full">
         
-        <!-- SECCIÓN: CONTEXTO E IMAGEN -->
-        <section>
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-                <div>
-                    <div class="flex items-start gap-4 mb-8 border-b-2 border-neutral-200 pb-4">
-                        <div class="p-3 bg-orange-50 rounded-lg text-orange-600">
-                            <i data-lucide="network" width="28" height="28"></i>
-                        </div>
-                        <div>
-                            <h2 class="text-3xl font-bold text-neutral-800">Contexto Digital</h2>
-                            <p class="text-neutral-500 mt-1">Transformación del sistema de salud provincial</p>
+        <div class="bg-white rounded-t-2xl shadow-sm border-b border-gray-200 overflow-x-auto no-scrollbar">
+            <div class="flex whitespace-nowrap px-2" id="tabsContainer">
+                <button class="tab-btn active-tab px-6 py-5 text-sm font-bold text-orange-600 border-b-2 border-orange-500 flex items-center gap-2 focus:outline-none transition-colors" data-target="tab-vision">
+                    <i data-lucide="eye" width="18"></i> Visión General
+                </button>
+                <button class="tab-btn px-6 py-5 text-sm font-medium text-gray-500 hover:text-orange-600 border-b-2 border-transparent hover:border-orange-200 flex items-center gap-2 focus:outline-none transition-colors" data-target="tab-objetivos">
+                    <i data-lucide="target" width="18"></i> Objetivos y Alcance
+                </button>
+                <button class="tab-btn px-6 py-5 text-sm font-medium text-gray-500 hover:text-orange-600 border-b-2 border-transparent hover:border-orange-200 flex items-center gap-2 focus:outline-none transition-colors" data-target="tab-arquitectura">
+                    <i data-lucide="cpu" width="18"></i> Arquitectura y Seguridad
+                </button>
+                <button class="tab-btn px-6 py-5 text-sm font-medium text-gray-500 hover:text-orange-600 border-b-2 border-transparent hover:border-orange-200 flex items-center gap-2 focus:outline-none transition-colors" data-target="tab-plan">
+                    <i data-lucide="calendar-clock" width="18"></i> Planificación
+                </button>
+                <button class="tab-btn px-6 py-5 text-sm font-medium text-gray-500 hover:text-orange-600 border-b-2 border-transparent hover:border-orange-200 flex items-center gap-2 focus:outline-none transition-colors" data-target="tab-futuro">
+                    <i data-lucide="trending-up" width="18"></i> Impacto y Futuro
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-b-2xl shadow-xl p-8 md:p-12 min-h-[500px]">
+            
+            <div id="tab-vision" class="tab-content block animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                            <span class="bg-orange-100 text-orange-600 p-2 rounded-lg"><i data-lucide="activity"></i></span>
+                            La Problemática Actual
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Actualmente, la información de salud del afiliado se encuentra <strong>fragmentada</strong> en silos aislados (sistemas heterogéneos de prestadores). Esto dificulta la auditoría médica, genera duplicación de gastos y pone en riesgo la continuidad del cuidado.
+                        </p>
+                        
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6 mt-10 flex items-center gap-2">
+                            <span class="bg-green-100 text-green-600 p-2 rounded-lg"><i data-lucide="check-circle-2"></i></span>
+                            La Solución APOS
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Crear una <strong>Historia de Salud Digital Unificada (HSDU)</strong> que integre datos de clínicas, laboratorios y farmacias bajo estándares internacionales.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-sm text-gray-700">
+                                <i data-lucide="globe" class="text-blue-500 mt-1" width="16"></i>
+                                <span><strong>Estándar IPS (International Patient Summary):</strong> Garantiza un resumen clínico con datos esenciales (Alergias, Vacunas, Medicación).</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-gray-700">
+                                <i data-lucide="database" class="text-blue-500 mt-1" width="16"></i>
+                                <span><strong>Interoperabilidad Semántica:</strong> Uso de <span class="font-mono text-xs bg-gray-100 px-1 py-0.5 rounded">SNOMED CT</span> para que todos los sistemas "hablen el mismo idioma".</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-gray-100">
+                        <h4 class="font-bold text-slate-700 mb-4 text-center">Ecosistema Conectado</h4>
+                        <div class="relative w-full aspect-square max-w-sm mx-auto">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-32 h-32 bg-white rounded-full flex flex-col items-center justify-center shadow-lg border-4 border-orange-500 z-10">
+                                    <span class="font-black text-2xl text-slate-800">HSDU</span>
+                                    <span class="text-xs text-orange-600 font-bold">APOS</span>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 border-2 border-dashed border-gray-300 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 bg-white p-2 shadow-md rounded-lg text-xs font-bold text-slate-600">Hospitales</div>
+                            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 bg-white p-2 shadow-md rounded-lg text-xs font-bold text-slate-600">Farmacias</div>
+                            <div class="absolute left-0 top-1/2 -translate-x-4 -translate-y-1/2 bg-white p-2 shadow-md rounded-lg text-xs font-bold text-slate-600">Laboratorios</div>
+                            <div class="absolute right-0 top-1/2 translate-x-4 -translate-y-1/2 bg-white p-2 shadow-md rounded-lg text-xs font-bold text-slate-600">Afiliado</div>
                         </div>
                     </div>
-                    
-                    <p class="text-lg leading-relaxed mb-6">
-                        En el marco de la modernización tecnológica, <strong class="text-orange-700">APOS</strong> propone una solución a la fragmentación actual de la información del afiliado.
-                    </p>
-                    <div class="bg-white border-l-4 border-orange-500 p-6 shadow-sm rounded-r-xl">
-                        <p class="italic text-neutral-700 mb-2">
-                            "Una visión completa del historial de salud, unificando la información dispersa."
+                </div>
+            </div>
+
+            <div id="tab-objetivos" class="tab-content hidden animate-fade-in">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Objetivos Estratégicos</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="p-6 bg-orange-50 rounded-xl border-l-4 border-orange-500">
+                                <h4 class="font-bold text-orange-800 mb-2">1. Soberanía del Dato</h4>
+                                <p class="text-sm text-gray-700">Implementar un modelo federado donde la información está disponible bajo demanda, evitando bases de datos "espía" y protegiendo la privacidad.</p>
+                            </div>
+                            <div class="p-6 bg-blue-50 rounded-xl border-l-4 border-blue-500">
+                                <h4 class="font-bold text-blue-800 mb-2">2. Identidad Unívoca (MPI)</h4>
+                                <p class="text-sm text-gray-700">Integración con <strong>RENAPER</strong> para validar la identidad del paciente en tiempo real y evitar errores por homónimos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Metas Cuantitativas (KPIs)</h3>
+                        <div class="grid sm:grid-cols-3 gap-4">
+                            <div class="bg-white border border-gray-200 p-5 rounded-lg shadow-sm text-center">
+                                <div class="text-3xl font-black text-slate-800 mb-1">12 <span class="text-sm font-normal text-gray-500">meses</span></div>
+                                <p class="text-xs text-gray-600 font-medium">Integración operativa de Clínicas y Hospitales Regionales.</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-5 rounded-lg shadow-sm text-center">
+                                <div class="text-3xl font-black text-slate-800 mb-1">70%</div>
+                                <p class="text-xs text-gray-600 font-medium">De las consultas ambulatorias registradas digitalmente (Mes 18).</p>
+                            </div>
+                            <div class="bg-white border border-gray-200 p-5 rounded-lg shadow-sm text-center">
+                                <div class="text-3xl font-black text-green-600 mb-1">-50%</div>
+                                <p class="text-xs text-gray-600 font-medium">Reducción en duplicación de estudios diagnósticos (Mes 24).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Alcance Técnico</h3>
+                        <p class="text-gray-600 mb-4">Estrategia <strong>"Day One Forward"</strong>: Se prioriza la digitalización de datos nuevos. Los archivos históricos en papel solo se digitalizan bajo demanda para patologías crónicas, evitando costos hundidos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-arquitectura" class="tab-content hidden animate-fade-in">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-2">Seguridad y Legalidad</h3>
+                            <p class="text-gray-500 italic mb-6">Cumplimiento estricto de la Ley 25.326 de Protección de Datos Personales.</p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex gap-4 items-start">
+                                    <div class="bg-slate-100 p-3 rounded-lg"><i data-lucide="shield-check" class="text-slate-700"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Tecnología WORM</h4>
+                                        <p class="text-sm text-gray-600">Almacenamiento "Write Once, Read Many". Asegura la inalterabilidad jurídica de la historia clínica frente a juicios.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 items-start">
+                                    <div class="bg-slate-100 p-3 rounded-lg"><i data-lucide="lock" class="text-slate-700"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800">Seguridad Bancaria (2FA)</h4>
+                                        <p class="text-sm text-gray-600">Acceso web con Doble Factor de Autenticación y cifrado TLS/HTTPS de extremo a extremo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4">Infraestructura Web</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li><strong>Sin Instalación (Zero Footprint):</strong> Acceso 100% a través de navegador (Chrome, Edge, Firefox).</li>
+                                <li><strong>Bus de Interoperabilidad:</strong> Orquestador central basado en HL7 FHIR.</li>
+                                <li><strong>Portabilidad:</strong> Funciona en PC, Tablet y Móviles para prestadores.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 text-white p-6 rounded-2xl flex flex-col justify-center">
+                        <h4 class="text-orange-400 font-bold uppercase tracking-wider text-sm mb-6">Stack Tecnológico</h4>
+                        <div class="space-y-6 font-mono text-sm">
+                            <div>
+                                <span class="block text-gray-400 text-xs">Intercambio</span>
+                                <span class="text-lg font-bold">HL7 FHIR R4</span>
+                            </div>
+                            <div>
+                                <span class="block text-gray-400 text-xs">Semántica</span>
+                                <span class="text-lg font-bold">SNOMED CT</span>
+                            </div>
+                            <div>
+                                <span class="block text-gray-400 text-xs">Identidad</span>
+                                <span class="text-lg font-bold">RENAPER API</span>
+                            </div>
+                            <div>
+                                <span class="block text-gray-400 text-xs">Infraestructura</span>
+                                <span class="text-lg font-bold">Cloud Híbrida</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-plan" class="tab-content hidden animate-fade-in">
+                <div class="relative border-l-4 border-orange-200 ml-4 space-y-12 my-4">
+                    <div class="relative pl-8">
+                        <div class="absolute -left-3 top-0 bg-white border-4 border-orange-500 w-6 h-6 rounded-full"></div>
+                        <h4 class="text-xl font-bold text-slate-800">Fase I: Relevamiento y Normalización</h4>
+                        <span class="text-xs font-bold text-orange-600 uppercase tracking-wide bg-orange-100 px-2 py-1 rounded">Mes 1 - 4</span>
+                        <div class="mt-3 bg-gray-50 p-4 rounded-lg text-sm text-gray-700">
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Implementación del Índice Maestro de Pacientes (MPI).</li>
+                                <li>Definición legal del Consentimiento Informado Digital.</li>
+                                <li>Estandarización de procesos de auditoría.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-8">
+                        <div class="absolute -left-3 top-0 bg-white border-4 border-orange-500 w-6 h-6 rounded-full"></div>
+                        <h4 class="text-xl font-bold text-slate-800">Fase II: Desarrollo e Integración</h4>
+                        <span class="text-xs font-bold text-orange-600 uppercase tracking-wide bg-orange-100 px-2 py-1 rounded">Mes 5 - 12</span>
+                        <div class="mt-3 bg-gray-50 p-4 rounded-lg text-sm text-gray-700">
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Desarrollo Frontend compatible con navegadores.</li>
+                                <li>Arquitectura WORM para seguridad legal.</li>
+                                <li>Integración técnica con prestadores mayores (Sanatorios).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-8">
+                        <div class="absolute -left-3 top-0 bg-white border-4 border-orange-500 w-6 h-6 rounded-full"></div>
+                        <h4 class="text-xl font-bold text-slate-800">Fase III: Piloto y Despliegue</h4>
+                        <span class="text-xs font-bold text-orange-600 uppercase tracking-wide bg-orange-100 px-2 py-1 rounded">Mes 13 - 18</span>
+                        <div class="mt-3 bg-gray-50 p-4 rounded-lg text-sm text-gray-700">
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Piloto Productivo en entorno real.</li>
+                                <li>Despliegue masivo (sin instalación in-situ).</li>
+                                <li>Capacitación del 80% del personal operativo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-futuro" class="tab-content hidden animate-fade-in">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h3 class="text-3xl font-bold text-slate-800 mb-4">Más allá de la Historia Clínica</h3>
+                    <p class="text-gray-600">APOS Conecta no es solo un registro, es la base para una gestión de salud predictiva e inteligente.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 rounded-2xl shadow-lg">
+                        <i data-lucide="brain-circuit" class="text-orange-400 mb-4" width="40"></i>
+                        <h4 class="text-xl font-bold mb-2">Módulo Big Data</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Al estructurar los datos, pasaremos de una medicina reactiva a una preventiva. Podremos predecir brotes epidemiológicos y asignar recursos donde realmente se necesitan basándonos en evidencia en tiempo real.
+                        </p>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 p-8 rounded-2xl shadow-sm">
+                        <i data-lucide="shield-alert" class="text-orange-600 mb-4" width="40"></i>
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">Gestión de Riesgos</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Se ha diseñado una estrategia robusta para mitigar la resistencia al cambio mediante la formación de "Usuarios Líderes" y mesas de ayuda vía WhatsApp para soporte inmediato, garantizando que la tecnología nunca sea una barrera.
                         </p>
                     </div>
                 </div>
-
-                <!-- CONTENEDOR DE LA IMAGEN (Gráfico de Conexión SVG) -->
-                <div class="bg-white p-4 rounded-2xl shadow-lg border border-neutral-100">
-                    <div class="bg-neutral-50 rounded-xl h-64 md:h-80 w-full flex items-center justify-center overflow-hidden relative">
-                         <!-- SVG simple que simula el gráfico vectorial del PDF -->
-                         <svg class="w-full h-full p-4" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Paciente Central -->
-                            <circle cx="250" cy="250" r="70" fill="#FFF" stroke="#E5E7EB" stroke-width="2"/>
-                            <i data-lucide="user" x="220" y="220" width="60" height="60" fill="#F97316" stroke="#F97316"></i>
-                            <text x="250" y="320" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#171717" font-weight="bold">PACIENTE</text>
-
-                            <!-- Hospital (Arriba) -->
-                            <i data-lucide="hospital" x="225" y="50" width="50" height="50" fill="#00A8E8" stroke="#00A8E8"></i>
-                            <text x="250" y="120" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#00A8E8">CENTRO DE SALUD</text>
-                            <line x1="250" y1="130" x2="250" y2="250" stroke="#00A8E8" stroke-width="3" marker-end="url(#arrowhead)"/>
-
-                            <!-- Farmacia (Derecha) -->
-                            <i data-lucide="syringe" x="380" y="225" width="50" height="50" fill="#2EC4B6" stroke="#2EC4B6"></i>
-                            <text x="405" y="295" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#2EC4B6">FARMACIA</text>
-                            <line x1="330" y1="250" x2="250" y2="250" stroke="#2EC4B6" stroke-width="3" marker-end="url(#arrowhead)"/>
-
-                            <!-- Laboratorio (Izquierda) -->
-                            <i data-lucide="microscope" x="70" y="225" width="50" height="50" fill="#F97316" stroke="#F97316"></i>
-                            <text x="95" y="295" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#F97316">LABORATORIO</text>
-                            <line x1="170" y1="250" x2="250" y2="250" stroke="#F97316" stroke-width="3" marker-end="url(#arrowhead)"/>
-                            
-                            <defs>
-                                <marker id="arrowhead" markerWidth="5" markerHeight="5" refX="2" refY="2" orient="auto">
-                                    <polygon points="0 0, 5 2, 0 4" fill="currentColor"/>
-                                </marker>
-                            </defs>
-                        </svg>
-                         
-                         <!-- Etiqueta flotante -->
-                         <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-orange-600 shadow-sm border border-orange-100">
-                            Ecosistema APOS Conecta
-                         </div>
-                    </div>
-                    <p class="text-center text-xs text-neutral-400 mt-3 italic">Figura 1: Esquema de interoperabilidad centrado en el paciente.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- OBJETIVOS -->
-        <section>
-            <div class="flex items-start gap-4 mb-8 border-b-2 border-neutral-200 pb-4">
-                <div class="p-3 bg-orange-50 rounded-lg text-orange-600">
-                    <i data-lucide="trending-up" width="28" height="28"></i>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-bold text-neutral-800">Definición del Proyecto</h2>
-                </div>
-            </div>
-            
-            <div class="mb-8">
-                <h3 class="text-xl font-bold text-neutral-800 mb-3">Objetivo General</h3>
-                <p class="text-lg">Diseñar e implementar la plataforma "APOS Conecta", garantizando la continuidad asistencial y la soberanía de los datos de salud de los afiliados.</p>
-            </div>
-
-            <!-- Stats Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-                <div class="bg-gradient-to-br from-neutral-800 to-black rounded-xl p-6 text-white flex flex-col items-center text-center border-b-4 border-orange-500">
-                    <i data-lucide="file-text" class="mb-3 text-orange-500" width="32" height="32"></i>
-                    <span class="text-4xl font-extrabold mb-1">70%</span>
-                    <span class="text-neutral-300 text-sm font-medium leading-tight">Consultas Registradas</span>
-                </div>
-                <div class="bg-gradient-to-br from-neutral-800 to-black rounded-xl p-6 text-white flex flex-col items-center text-center border-b-4 border-orange-500">
-                    <i data-lucide="calendar" class="mb-3 text-orange-500" width="32" height="32"></i>
-                    <span class="text-4xl font-extrabold mb-1">18</span>
-                    <span class="text-neutral-300 text-sm font-medium leading-tight">Meses de Plazo</span>
-                </div>
-                <div class="bg-gradient-to-br from-neutral-800 to-black rounded-xl p-6 text-white flex flex-col items-center text-center border-b-4 border-orange-500">
-                    <i data-lucide="users" class="mb-3 text-orange-500" width="32" height="32"></i>
-                    <span class="text-4xl font-extrabold mb-1">75%</span>
-                    <span class="text-neutral-300 text-sm font-medium leading-tight">Prestadores Integrados</span>
-                </div>
-                <div class="bg-gradient-to-br from-neutral-800 to-black rounded-xl p-6 text-white flex flex-col items-center text-center border-b-4 border-orange-500">
-                    <i data-lucide="activity" class="mb-3 text-orange-500" width="32" height="32"></i>
-                    <span class="text-4xl font-extrabold mb-1">-50%</span>
-                    <span class="text-neutral-300 text-sm font-medium leading-tight">Duplicación de Estudios</span>
+                
+                <div class="mt-12 p-6 bg-orange-50 rounded-xl text-center border border-orange-100">
+                    <p class="text-orange-800 font-medium">
+                        "APOS Conecta garantiza que la salud de los riojanos esté resguardada, accesible y segura."
+                    </p>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 p-6 bg-neutral-100/50 border-none hover-card transition-all duration-300">
-                <h3 class="flex items-center gap-2 font-bold text-neutral-700 mb-3">
-                   <i data-lucide="shield" width="20" height="20" class="text-orange-600"></i> Alcance y Seguridad
-                </h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                   <div class="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                     <strong class="block text-neutral-800 mb-1">Interoperabilidad Semántica</strong>
-                     <p class="text-sm">Uso de estándares HL7 FHIR y terminología SNOMED CT.</p>
-                   </div>
-                   <div class="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                     <strong class="block text-neutral-800 mb-1">Seguridad WORM</strong>
-                     <p class="text-sm">Garantizar que la HSDU sea inalterable y recuperable (Ley 25.326).</p>
-                   </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ETAPAS -->
-        <section>
-            <div class="flex items-start gap-4 mb-8 border-b-2 border-neutral-200 pb-4">
-                <div class="p-3 bg-orange-50 rounded-lg text-orange-600">
-                    <i data-lucide="server" width="28" height="28"></i>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-bold text-neutral-800">Planificación y Etapas</h2>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Fase 1: RELEVAMIENTO Y DISEÑO -->
-                <div class="relative pl-8 md:pl-0">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-neutral-200 md:hidden ml-3"></div>
-                    <div class="bg-white p-6 rounded-xl border-l-4 border-orange-500 shadow-sm mb-6 hover-card transition-all duration-300">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-orange-500">Fase I</span>
-                                <h3 class="text-xl font-bold text-neutral-800">Relevamiento y Diseño</h3>
-                            </div>
-                            <span class="bg-neutral-100 text-neutral-600 text-xs font-bold px-3 py-1 rounded-full">4 Meses</span>
-                        </div>
-                        <ul class="space-y-2">
-                            <li class="flex items-start text-sm text-neutral-600"><i data-lucide="check-circle" class="mr-2 mt-0.5 text-orange-500 shrink-0" width="16"></i> Análisis de Procesos y SNOMED CT.</li>
-                            <li class="flex items-start text-sm text-neutral-600"><i data-lucide="check-circle" class="mr-2 mt-0.5 text-orange-500 shrink-0" width="16"></i> Diseño Funcional y Estrategia de Cambio.</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Fase 2: DESARROLLO Y EVALUACIÓN -->
-                <div class="relative pl-8 md:pl-0">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-neutral-200 md:hidden ml-3"></div>
-                    <div class="bg-white p-6 rounded-xl border-l-4 border-amber-500 shadow-sm mb-6 hover-card transition-all duration-300">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-amber-500">Fase II</span>
-                                <h3 class="text-xl font-bold text-neutral-800">Desarrollo y Evaluación</h3>
-                            </div>
-                            <span class="bg-neutral-100 text-neutral-600 text-xs font-bold px-3 py-1 rounded-full">8 Meses</span>
-                        </div>
-                        <ul class="space-y-2">
-                            <li class="flex items-start text-sm text-neutral-600"><i data-lucide="check-circle" class="mr-2 mt-0.5 text-orange-500 shrink-0" width="16"></i> Construcción del Prototipo APOS Conecta.</li>
-                            <li class="flex items-start text-sm text-neutral-600"><i data-lucide="check-circle" class="mr-2 mt-0.5 text-orange-500 shrink-0" width="16"></i> Arquitectura de Seguridad (WORM) y Big Data.</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Fase 3: INTEGRACIÓN Y PILOTO -->
-                <div class="relative pl-8 md:pl-0">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-neutral-200 md:hidden ml-3"></div>
-                    <div class="bg-white p-6 rounded-xl border-l-4 border-neutral-700 shadow-sm mb-6 hover-card transition-all duration-300">
-                        <div class="flex justify-between items-start mb-4">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-neutral-700">Fase III</span>
-                                <h3 class="text-xl font-bold text-neutral-800">Integración y Piloto</h3>
-                            </div>
-                            <span class="bg-neutral-100 text-neutral-600 text-xs font-bold px-3 py-1 rounded-full">6 Meses</span>
-                        </div>
-                        <ul class="space-y-2">
-                            <li class="flex items-start text-sm text-neutral-600"><i data-lucide="check-circle" class="mr-2 mt-0.5 text-orange-500 shrink-0" width="16"></i> Integración con sistemas preexistentes.</li>
-                            <li class="flex items-start text-sm text-neutral-600"><i data-lucide="check-circle" class="mr-2 mt-0.5 text-orange-500 shrink-0" width="16"></i> Ejecución del Pentest y Auditoría Semántica Externa.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- RIESGOS -->
-        <section>
-            <div class="flex items-start gap-4 mb-8 border-b-2 border-neutral-200 pb-4">
-                <div class="p-3 bg-orange-50 rounded-lg text-orange-600">
-                    <i data-lucide="alert-triangle" width="28" height="28"></i>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-bold text-neutral-800">Matriz de Riesgos</h2>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Negativos -->
-                <div class="overflow-hidden rounded-xl border border-neutral-200 shadow-sm">
-                    <div class="bg-neutral-100 p-4 border-b border-neutral-200 flex items-center gap-2">
-                        <i data-lucide="shield" class="text-red-500" width="20"></i>
-                        <h3 class="font-bold text-neutral-800">Amenazas (Riesgo Alto/Medio)</h3>
-                    </div>
-                    <div class="p-4 bg-white space-y-4">
-                        <div class="pb-2 border-b border-neutral-100">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-neutral-800 font-medium">Resistencia al Uso</span>
-                                <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Alto/Alta</span>
-                            </div>
-                            <p class="text-xs text-neutral-500 italic">Acción: Implementar Estrategia de Gestión del Cambio.</p>
-                        </div>
-                        <div class="pb-2 border-b border-neutral-100">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-neutral-800 font-medium">Ciberseguridad/Fuga de Datos</span>
-                                <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Alto/Alta</span>
-                            </div>
-                            <p class="text-xs text-neutral-500 italic">Acción: Uso obligatorio de WORM y Pentest externo.</p>
-                        </div>
-                        <div class="pb-2 border-b-0">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-neutral-800 font-medium">Inconsistencia Semántica</span>
-                                <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full">Medio/Media</span>
-                            </div>
-                            <p class="text-xs text-neutral-500 italic">Acción: Contratar Auditoría Semántica Externa.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Positivos -->
-                <div class="overflow-hidden rounded-xl border border-neutral-200 shadow-sm">
-                    <div class="bg-neutral-100 p-4 border-b border-neutral-200 flex items-center gap-2">
-                        <i data-lucide="database" class="text-green-600" width="20"></i>
-                        <h3 class="font-bold text-neutral-800">Oportunidades (Riesgo Alto/Medio)</h3>
-                    </div>
-                    <div class="p-4 bg-white space-y-4">
-                        <div class="pb-2 border-b border-neutral-100">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-neutral-800 font-medium">Disponibilidad temprana Big Data</span>
-                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Alto/Media</span>
-                            </div>
-                            <p class="text-xs text-neutral-500 italic">Acción: Diseño de modelos e indicadores (KPIs) en Fase II.</p>
-                        </div>
-                        <div class="pb-2 border-b border-neutral-100">
-                            <div class="flex justify-between items-center mb-1">
-                                <span class="text-neutral-800 font-medium">Soporte del Ministerio</span>
-                                <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Alto/Media</span>
-                            </div>
-                            <p class="text-xs text-neutral-500 italic">Acción: Acuerdo de colaboración para soporte técnico.</p>
-                        </div>
-                        <div class="pb-2 border-b-0">
-                            <div class="flex justify-between items-center">
-                                <span class="text-neutral-800 font-medium">Aumento de Eficiencia Operativa</span>
-                                <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full">Medio/Alta</span>
-                            </div>
-                            <p class="text-xs text-neutral-500 italic">Acción: Incentivos a prestadores para uso obligatorio de HSDU.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONCLUSIÓN -->
-        <section class="bg-neutral-900 text-neutral-300 rounded-3xl p-8 md:p-12 relative overflow-hidden">
-           <div class="absolute top-0 right-0 p-12 opacity-5">
-             <i data-lucide="activity" width="300" height="300"></i>
-           </div>
-           
-           <div class="relative z-10 text-center">
-               <h2 class="text-3xl font-bold text-white mb-6">Conclusión y Futuro</h2>
-               <p class="mb-8 leading-relaxed max-w-2xl mx-auto">
-                 El proyecto "APOS Conecta" es viable y fundamental para la modernización del sistema de salud provincial. Se garantiza la seguridad y la calidad de los datos, pilares de la interoperabilidad.
-               </p>
-               <h3 class="text-xl font-bold text-orange-500 mb-3">Trabajo a Futuro</h3>
-               <p class="mb-4 text-sm max-w-xl mx-auto">
-                   La segunda etapa se enfocará en la **Integración completa** de prestadores menores y el desarrollo de un **Módulo de Análisis y Big Data** para la toma de decisiones.
-               </p>
-               <!-- Botón Footer para imprimir (Con ID para JS) -->
-               <button id="printButtonFooter" class="no-print bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg shadow-orange-600/20">
-                   Descargar Informe PDF
-               </button>
-           </div>
-        </section>
-
+        </div>
     </main>
     
-    <footer class="bg-black border-t border-neutral-900 py-8 text-center text-neutral-500 text-sm">
-        <p>© 2025 Fundación H. Barceló - Proyecto APOS CONECTA</p>
+    <footer class="bg-white border-t border-gray-200 py-10 flex-shrink-0">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h3 class="text-lg font-bold text-slate-800 mb-1">APOS CONECTA</h3>
+            <p class="text-xs text-gray-500 mb-6">Fundación H. Barceló - T.U.A.S.L.M. | Proyecto Académico 2025</p>
+            <div class="text-xs text-gray-400">
+                &copy; Desarrollado por Franco Testa
+            </div>
+        </div>
     </footer>
 
-    <!-- Enlace al archivo JavaScript externo -->
     <script src="script.js"></script>
 </body>
 </html>
