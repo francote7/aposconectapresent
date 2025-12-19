@@ -118,11 +118,11 @@
                         <ul class="space-y-3">
                             <li class="flex items-start gap-3 text-sm text-gray-700">
                                 <i data-lucide="globe" class="text-blue-500 mt-1" width="16"></i>
-                                <span><strong>Estándar IPS (International Patient Summary):</strong> Garantiza un resumen clínico con datos esenciales (Alergias, Vacunas, Medicación).</span>
+                                <span><strong>Estándar IPS (Resumen Internacional del Paciente):</strong> Garantiza un resumen clínico con datos críticos y esenciales (Alergias/Intolerancias, Vacunas, Medicación Actual, Problemas Activos y Otros como Grupo Sanguíneo, Cirugías Frecuentes y Labpratorio Crítico).</span>
                             </li>
                             <li class="flex items-start gap-3 text-sm text-gray-700">
                                 <i data-lucide="database" class="text-blue-500 mt-1" width="16"></i>
-                                <span><strong>Interoperabilidad Semántica:</strong> Uso de <span class="font-mono text-xs bg-gray-100 px-1 py-0.5 rounded">SNOMED CT</span> para que todos los sistemas "hablen el mismo idioma".</span>
+                                <span><strong>Interoperabilidad Semántica:</strong> Uso de <span class="font-mono text-xs bg-gray-100 px-1 py-0.5 rounded">HL/ FHIR y SNOMED CT</span> garantiza el viaje y la compresión de la información, para que todos los sistemas "hablen el mismo idioma".</span>
                             </li>
                         </ul>
                     </div>
@@ -152,17 +152,17 @@
                         <div class="grid md:grid-cols-2 gap-6">
                             <div class="p-6 bg-orange-50 rounded-xl border-l-4 border-orange-500">
                                 <h4 class="font-bold text-orange-800 mb-2">1. Soberanía del Dato</h4>
-                                <p class="text-sm text-gray-700">Implementar un modelo federado donde la información está disponible bajo demanda, evitando bases de datos "espía" y protegiendo la privacidad.</p>
+                                <p class="text-sm text-gray-700">Implementar un modelo federado donde la información está disponible bajo demanda, evitando bases de datos "espía" y protegiendo la privacidad. La información queda en sus repositorios originales.</p>
                             </div>
                             <div class="p-6 bg-blue-50 rounded-xl border-l-4 border-blue-500">
-                                <h4 class="font-bold text-blue-800 mb-2">2. Identidad Unívoca (MPI)</h4>
-                                <p class="text-sm text-gray-700">Integración con <strong>RENAPER</strong> para validar la identidad del paciente en tiempo real y evitar errores por homónimos.</p>
+                                <h4 class="font-bold text-blue-800 mb-2">2. Indice Maestro del Paciente (MPI)</h4>
+                                <p class="text-sm text-gray-700">Integración con <strong>RENAPER</strong> para validar la identidad del paciente en tiempo real y evitar errores por homónimos. Sistema inteligente que genera un ID único.</p>
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Metas Cuantitativas (KPIs)</h3>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Metas Cuantitativas (Indicadores Claves de Desempeño -KPIs-)</h3>
                         <div class="grid sm:grid-cols-3 gap-4">
                             <div class="bg-white border border-gray-200 p-5 rounded-lg shadow-sm text-center">
                                 <div class="text-3xl font-black text-slate-800 mb-1">12 <span class="text-sm font-normal text-gray-500">meses</span></div>
@@ -205,7 +205,7 @@
                                     <div class="bg-slate-100 p-3 rounded-lg"><i data-lucide="lock" class="text-slate-700"></i></div>
                                     <div>
                                         <h4 class="font-bold text-slate-800">Seguridad Bancaria (2FA)</h4>
-                                        <p class="text-sm text-gray-600">Acceso web con Doble Factor de Autenticación y cifrado TLS/HTTPS de extremo a extremo.</p>
+                                        <p class="text-sm text-gray-600">Acceso web con Doble Factor de Autenticación y cifrado TLS (seguridad de capa de transporte)/HTTPS ( protocolo seguro de transferencia de hipertexto), de extremo a extremo.</p>
                                     </div>
                                 </div>
                             </div>
@@ -269,6 +269,7 @@
                                 <li>Desarrollo Frontend compatible con navegadores.</li>
                                 <li>Arquitectura WORM para seguridad legal.</li>
                                 <li>Integración técnica con prestadores mayores (Sanatorios).</li>
+                                <li>Implemetación de Login seguro..</li>
                             </ul>
                         </div>
                     </div>
@@ -281,7 +282,6 @@
                             <ul class="list-disc list-inside space-y-1">
                                 <li>Piloto Productivo en entorno real.</li>
                                 <li>Despliegue masivo (sin instalación in-situ).</li>
-                                <li>Capacitación del 80% del personal operativo.</li>
                             </ul>
                         </div>
                     </div>
