@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APOS Conecta | HSDU - Innovación en Salud</title>
+    <title>APOS Conecta | HSDU - Seminario Integrador 2025</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -31,23 +31,120 @@
         }
     </script>
     
-    <link rel="stylesheet" href="style.css">
-    
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilos Base */
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+        }
+
+        /* Ocultar scrollbar en la navegación de tabs pero permitir scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Animación de entrada para el contenido de los tabs */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        /* Estilos de botones de tab activos vs inactivos para hover */
+        .tab-btn:hover:not(.active-tab) {
+            background-color: rgba(249, 115, 22, 0.05); /* Orange muy suave */
+        }
+
+        /* Estilo para tablas personalizadas */
+        td, th {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* CLASES DE UTILIDAD PARA JS (CRITICAS) */
+        .hidden {
+            display: none !important;
+        }
+        .block {
+            display: block !important;
+        }
+        .tab-btn {
+            cursor: pointer;
+        }
+
+        /* Ajustes de Impresión */
+        @media print { 
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background-color: white;
+                color: black;
+            }
+
+            /* En impresión, expandimos todos los tabs */
+            .tab-content {
+                display: block !important;
+                opacity: 1 !important;
+                transform: none !important;
+                margin-bottom: 3rem;
+                page-break-inside: avoid;
+                border-bottom: 1px solid #ddd;
+                padding-bottom: 2rem;
+            }
+            
+            .tab-btn {
+                display: none !important;
+            }
+
+            /* Ajuste de colores para ahorro de tinta */
+            .bg-slate-900, .bg-slate-800 {
+                background-color: white !important;
+                color: black !important;
+                border-bottom: 2px solid #000;
+            }
+            
+            .text-white {
+                color: black !important;
+            }
+            
+            /* Títulos para impresión */
+            .tab-content::before {
+                content: attr(data-print-title); 
+                display: block;
+                font-size: 18pt;
+                font-weight: bold;
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+                color: #ea580c;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-slate-700 font-sans antialiased selection:bg-orange-200 selection:text-orange-900 flex flex-col min-h-screen">
 
-    <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-orange-900 text-white pt-16 pb-24 px-6 relative overflow-hidden shadow-2xl flex-shrink-0">
+    <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-orange-900 text-white pt-12 pb-20 px-6 relative overflow-hidden shadow-2xl flex-shrink-0">
         <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4 pointer-events-none">
             <i data-lucide="network" width="600" height="600"></i>
         </div>
 
-        <div class="max-w-6xl mx-auto relative z-10">
-            <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-8">
                 <div class="lg:w-3/4">
                     <div class="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-400/30 text-orange-200 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-6 backdrop-blur-sm">
                         <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                        Seminario Integrador 2025
+                        Seminario Integrador T.U.A.S.I.M. 2025
                     </div>
                     
                     <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight tracking-tight">
@@ -58,14 +155,20 @@
                         Plataforma de Historia de Salud Digital Unificada (HSDU).
                     </h2>
                     
-                    <p class="text-gray-400 max-w-2xl leading-relaxed mb-8">
-                        Un ecosistema de interoperabilidad diseñado para garantizar la soberanía de los datos, la seguridad jurídica y la eficiencia prestacional en La Rioja.
-                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-400 mb-8 border-l-4 border-orange-500 pl-4">
+                        <div>
+                            <p><strong class="text-gray-300">Institución:</strong> Fundación H. A. Barceló</p>
+                            <p><strong class="text-gray-300">Carrera:</strong> Tec. Univ. Análisis de Sist. de Inf. Médica</p>
+                        </div>
+                        <div>
+                            <p><strong class="text-gray-300">Alumno:</strong> Franco Testa</p>
+                            <p><strong class="text-gray-300">Profesor:</strong> Lic. Javier Romero</p>
+                        </div>
+                    </div>
 
                     <div class="flex flex-wrap gap-4 no-print">
-                        <button id="printButtonHeader" class="group flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg shadow-orange-900/30 border border-orange-400/20 hover:scale-105">
-                            <i data-lucide="printer" width="18"></i>
-                            Imprimir Reporte
+                        <button id="printButtonHeader" class="group flex items-center gap-3 bg-orange-600 hover:bg-orange-500 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg shadow-orange-900/30 border border-orange-400/20 hover:scale-105 cursor-pointer">
+                            <i data-lucide="printer" width="18"></i> Imprimir Proyecto
                         </button>
                     </div>
                 </div>
@@ -73,265 +176,407 @@
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 -mt-16 relative z-20 pb-20 flex-grow w-full">
-        
-        <div class="bg-white rounded-t-2xl shadow-sm border-b border-gray-200 overflow-x-auto no-scrollbar">
-            <div class="flex whitespace-nowrap px-2" id="tabsContainer">
-                <button class="tab-btn active-tab px-6 py-5 text-sm font-bold text-orange-600 border-b-2 border-orange-500 flex items-center gap-2 focus:outline-none transition-colors" data-target="tab-vision">
-                    <i data-lucide="eye" width="18"></i> Visión General
+    <div class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex -mb-px space-x-8 overflow-x-auto no-scrollbar" aria-label="Tabs">
+                <button class="tab-btn active-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2 text-orange-600 border-orange-500" data-target="tab-inicio">
+                    <i data-lucide="home" width="16"></i> Inicio
                 </button>
-                <button class="tab-btn px-6 py-5 text-sm font-medium text-gray-500 hover:text-orange-600 border-b-2 border-transparent hover:border-orange-200 flex items-center gap-2 focus:outline-none transition-colors" data-target="tab-objetivos">
-                    <i data-lucide="target" width="18"></i> Objetivos y Alcance
+                <button class="tab-btn text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2" data-target="tab-proyecto">
+                    <i data-lucide="target" width="16"></i> El Proyecto
                 </button>
-                <button class="tab-btn px-6 py-5 text-sm font-medium text-gray-500 hover:text-orange-600 border-b-2 border-transparent hover:border-orange-200 flex items-center gap-2 focus:outline-none transition-colors" data-target="tab-arquitectura">
-                    <i data-lucide="cpu" width="18"></i> Arquitectura y Seguridad
+                <button class="tab-btn text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2" data-target="tab-etapas">
+                    <i data-lucide="calendar-clock" width="16"></i> Etapas
                 </button>
-                <button class="tab-btn px-6 py-5 text-sm font-medium text-gray-500 hover:text-orange-600 border-b-2 border-transparent hover:border-orange-200 flex items-center gap-2 focus:outline-none transition-colors" data-target="tab-plan">
-                    <i data-lucide="calendar-clock" width="18"></i> Planificación
+                <button class="tab-btn text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2" data-target="tab-normativa">
+                    <i data-lucide="shield-check" width="16"></i> Normativa & Seguridad
                 </button>
-                <button class="tab-btn px-6 py-5 text-sm font-medium text-gray-500 hover:text-orange-600 border-b-2 border-transparent hover:border-orange-200 flex items-center gap-2 focus:outline-none transition-colors" data-target="tab-futuro">
-                    <i data-lucide="trending-up" width="18"></i> Impacto y Futuro
+                <button class="tab-btn text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2" data-target="tab-frontend">
+                    <i data-lucide="monitor" width="16"></i> Frontend
                 </button>
-            </div>
+            </nav>
         </div>
+    </div>
 
-        <div class="bg-white rounded-b-2xl shadow-xl p-8 md:p-12 min-h-[500px]">
-            
-            <div id="tab-vision" class="tab-content block animate-fade-in">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                            <span class="bg-orange-100 text-orange-600 p-2 rounded-lg"><i data-lucide="activity"></i></span>
-                            La Problemática Actual
-                        </h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Actualmente, la información de salud del afiliado se encuentra <strong>fragmentada</strong> en silos aislados (sistemas heterogéneos de prestadores). Esto dificulta la auditoría médica, genera duplicación de gastos y pone en riesgo la continuidad del cuidado.
-                        </p>
-                        
-                        <h3 class="text-2xl font-bold text-slate-800 mb-6 mt-10 flex items-center gap-2">
-                            <span class="bg-green-100 text-green-600 p-2 rounded-lg"><i data-lucide="check-circle-2"></i></span>
-                            La Solución APOS
-                        </h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Crear una <strong>Historia de Salud Digital Unificada (HSDU)</strong> que integre datos de clínicas, laboratorios y farmacias bajo estándares internacionales.
-                        </p>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <i data-lucide="globe" class="text-blue-500 mt-1" width="16"></i>
-                                <span><strong>Estándar IPS (Resumen Internacional del Paciente):</strong> Garantiza un resumen de salud con datos críticos y esenciales como Alergias/Intolerancias, Vacunas, Medicación Actual, Problemas Activos y Otros (Grupo Sanguíneo, Cirugías y Laboratorio Crítico).</span>
-                            </li>
-                            <li class="flex items-start gap-3 text-sm text-gray-700">
-                                <i data-lucide="database" class="text-blue-500 mt-1" width="16"></i>
-                                <span><strong>Interoperabilidad Semántica:</strong> Uso de <span class="font-mono text-xs bg-gray-100 px-1 py-0.5 rounded">HL7/ FHIR y SNOMED CT</span> garantiza el viaje y la compresión de la información, para que todos los sistemas "hablen el mismo idioma".</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bg-slate-50 p-8 rounded-2xl border border-gray-100">
-                        <h4 class="font-bold text-slate-700 mb-4 text-center">Ecosistema Conectado</h4>
-                        <div class="relative w-full aspect-square max-w-sm mx-auto">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="w-32 h-32 bg-white rounded-full flex flex-col items-center justify-center shadow-lg border-4 border-orange-500 z-10">
-                                    <span class="font-black text-2xl text-slate-800">HSDU</span>
-                                    <span class="text-xs text-orange-600 font-bold">APOS</span>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 border-2 border-dashed border-gray-300 rounded-full animate-[spin_10s_linear_infinite]"></div>
-                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 bg-white p-2 shadow-md rounded-lg text-xs font-bold text-slate-600">Hospitales</div>
-                            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 bg-white p-2 shadow-md rounded-lg text-xs font-bold text-slate-600">Farmacias</div>
-                            <div class="absolute left-0 top-1/2 -translate-x-4 -translate-y-1/2 bg-white p-2 shadow-md rounded-lg text-xs font-bold text-slate-600">Laboratorios</div>
-                            <div class="absolute right-0 top-1/2 translate-x-4 -translate-y-1/2 bg-white p-2 shadow-md rounded-lg text-xs font-bold text-slate-600">Afiliado</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tab-objetivos" class="tab-content hidden animate-fade-in">
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Objetivos Estratégicos</h3>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="p-6 bg-orange-50 rounded-xl border-l-4 border-orange-500">
-                                <h4 class="font-bold text-orange-800 mb-2">1. Soberanía del Dato</h4>
-                                <p class="text-sm text-gray-700">Implementar un modelo federado donde la información está disponible bajo demanda, evitando bases de datos "espía" y protegiendo la privacidad. La información queda en sus repositorios originales.</p>
-                            </div>
-                            <div class="p-6 bg-blue-50 rounded-xl border-l-4 border-blue-500">
-                                <h4 class="font-bold text-blue-800 mb-2">2. Indice Maestro del Paciente (MPI)</h4>
-                                <p class="text-sm text-gray-700">Integración con <strong>RENAPER</strong> para validar la identidad del paciente en tiempo real y evitar errores por homónimos. Sistema inteligente que genera un ID único.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Metas Cuantitativas (Indicadores Claves de Desempeño -KPIs-)</h3>
-                        <div class="grid sm:grid-cols-3 gap-4">
-                            <div class="bg-white border border-gray-200 p-5 rounded-lg shadow-sm text-center">
-                                <div class="text-3xl font-black text-slate-800 mb-1">12 <span class="text-sm font-normal text-gray-500">meses</span></div>
-                                <p class="text-xs text-gray-600 font-medium">Integración operativa de Clínicas y Hospitales Regionales.</p>
-                            </div>
-                            <div class="bg-white border border-gray-200 p-5 rounded-lg shadow-sm text-center">
-                                <div class="text-3xl font-black text-slate-800 mb-1">70%</div>
-                                <p class="text-xs text-gray-600 font-medium">De las consultas ambulatorias registradas digitalmente (Mes 18).</p>
-                            </div>
-                            <div class="bg-white border border-gray-200 p-5 rounded-lg shadow-sm text-center">
-                                <div class="text-3xl font-black text-green-600 mb-1">-50%</div>
-                                <p class="text-xs text-gray-600 font-medium">Reducción en duplicación de estudios diagnósticos (Mes 24).</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Alcance Técnico</h3>
-                        <p class="text-gray-600 mb-4">Estrategia <strong>"Day One Forward"</strong>: Se prioriza la digitalización de datos nuevos. Los archivos históricos en papel solo se digitalizan bajo demanda para patologías crónicas, evitando costos hundidos.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tab-arquitectura" class="tab-content hidden animate-fade-in">
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <div class="lg:col-span-2 space-y-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-800 mb-2">Seguridad y Legalidad</h3>
-                            <p class="text-gray-500 italic mb-6">Cumplimiento estricto de la Ley 25.326 de Protección de Datos Personales.</p>
-                            
-                            <div class="space-y-4">
-                                <div class="flex gap-4 items-start">
-                                    <div class="bg-slate-100 p-3 rounded-lg"><i data-lucide="shield-check" class="text-slate-700"></i></div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800">Tecnología WORM</h4>
-                                        <p class="text-sm text-gray-600">Almacenamiento "Write Once, Read Many". Asegura la inalterabilidad jurídica de la historia clínica frente a juicios.</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4 items-start">
-                                    <div class="bg-slate-100 p-3 rounded-lg"><i data-lucide="lock" class="text-slate-700"></i></div>
-                                    <div>
-                                        <h4 class="font-bold text-slate-800">Seguridad Bancaria (2FA)</h4>
-                                        <p class="text-sm text-gray-600">Acceso web con Doble Factor de Autenticación y cifrado TLS (seguridad de capa de transporte)/HTTPS ( protocolo seguro de transferencia de hipertexto), de extremo a extremo.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-2xl font-bold text-slate-800 mb-4">Infraestructura Web</h3>
-                            <ul class="list-disc list-inside space-y-2 text-gray-700">
-                                <li><strong>Sin Instalación (Zero Footprint):</strong> Acceso 100% a través de navegador (Chrome, Edge, Firefox).</li>
-                                <li><strong>Bus de Interoperabilidad:</strong> Orquestador central basado en HL7 FHIR.</li>
-                                <li><strong>Portabilidad:</strong> Funciona en PC, Tablet y Móviles para prestadores.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-900 text-white p-6 rounded-2xl flex flex-col justify-center">
-                        <h4 class="text-orange-400 font-bold uppercase tracking-wider text-sm mb-6">Stack Tecnológico</h4>
-                        <div class="space-y-6 font-mono text-sm">
-                            <div>
-                                <span class="block text-gray-400 text-xs">Intercambio</span>
-                                <span class="text-lg font-bold">HL7 FHIR R4</span>
-                            </div>
-                            <div>
-                                <span class="block text-gray-400 text-xs">Semántica</span>
-                                <span class="text-lg font-bold">SNOMED CT</span>
-                            </div>
-                            <div>
-                                <span class="block text-gray-400 text-xs">Identidad</span>
-                                <span class="text-lg font-bold">RENAPER API</span>
-                            </div>
-                            <div>
-                                <span class="block text-gray-400 text-xs">Infraestructura</span>
-                                <span class="text-lg font-bold">Cloud Híbrida</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tab-plan" class="tab-content hidden animate-fade-in">
-                <div class="relative border-l-4 border-orange-200 ml-4 space-y-12 my-4">
-                    <div class="relative pl-8">
-                        <div class="absolute -left-3 top-0 bg-white border-4 border-orange-500 w-6 h-6 rounded-full"></div>
-                        <h4 class="text-xl font-bold text-slate-800">Fase I: Relevamiento y Normalización</h4>
-                        <span class="text-xs font-bold text-orange-600 uppercase tracking-wide bg-orange-100 px-2 py-1 rounded">Mes 1 - 4</span>
-                        <div class="mt-3 bg-gray-50 p-4 rounded-lg text-sm text-gray-700">
-                            <ul class="list-disc list-inside space-y-1">
-                                <li>Implementación del Índice Maestro de Pacientes (MPI).</li>
-                                <li>Definición legal del Consentimiento Informado Digital.</li>
-                                <li>Estandarización de procesos de auditoría.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="relative pl-8">
-                        <div class="absolute -left-3 top-0 bg-white border-4 border-orange-500 w-6 h-6 rounded-full"></div>
-                        <h4 class="text-xl font-bold text-slate-800">Fase II: Desarrollo e Integración</h4>
-                        <span class="text-xs font-bold text-orange-600 uppercase tracking-wide bg-orange-100 px-2 py-1 rounded">Mes 5 - 12</span>
-                        <div class="mt-3 bg-gray-50 p-4 rounded-lg text-sm text-gray-700">
-                            <ul class="list-disc list-inside space-y-1">
-                                <li>Desarrollo Frontend compatible con navegadores.</li>
-                                <li>Arquitectura WORM para seguridad legal.</li>
-                                <li>Integración técnica con prestadores mayores (Sanatorios).</li>
-                                <li>Implemetación de Login seguro..</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="relative pl-8">
-                        <div class="absolute -left-3 top-0 bg-white border-4 border-orange-500 w-6 h-6 rounded-full"></div>
-                        <h4 class="text-xl font-bold text-slate-800">Fase III: Piloto y Despliegue</h4>
-                        <span class="text-xs font-bold text-orange-600 uppercase tracking-wide bg-orange-100 px-2 py-1 rounded">Mes 13 - 18</span>
-                        <div class="mt-3 bg-gray-50 p-4 rounded-lg text-sm text-gray-700">
-                            <ul class="list-disc list-inside space-y-1">
-                                <li>Piloto Productivo en entorno real.</li>
-                                <li>Despliegue masivo (sin instalación in-situ).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="tab-futuro" class="tab-content hidden animate-fade-in">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h3 class="text-3xl font-bold text-slate-800 mb-4">Más allá de la Historia Clínica</h3>
-                    <p class="text-gray-600">APOS Conecta no es solo un registro, es la base para una gestión de salud predictiva e inteligente.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 rounded-2xl shadow-lg">
-                        <i data-lucide="brain-circuit" class="text-orange-400 mb-4" width="40"></i>
-                        <h4 class="text-xl font-bold mb-2">Módulo Big Data</h4>
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            Al estructurar los datos, pasaremos de una medicina reactiva a una preventiva. Podremos predecir brotes epidemiológicos y asignar recursos donde realmente se necesitan basándonos en evidencia en tiempo real.
-                        </p>
-                    </div>
-
-                    <div class="bg-white border border-gray-200 p-8 rounded-2xl shadow-sm">
-                        <i data-lucide="shield-alert" class="text-orange-600 mb-4" width="40"></i>
-                        <h4 class="text-xl font-bold text-slate-800 mb-2">Gestión de Riesgos</h4>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            Se ha diseñado una estrategia robusta para mitigar la resistencia al cambio mediante la formación de "Usuarios Líderes" y mesas de ayuda vía WhatsApp para soporte inmediato, garantizando que la tecnología nunca sea una barrera.
+    <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
+        
+        <div id="tab-inicio" class="tab-content block animate-fade-in" data-print-title="Introducción">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Transformación Digital en Salud</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        En el marco del proceso de transformación digital del sistema de salud provincial, la 
+                        <strong>Administración Provincial de Obra Social (APOS)</strong> presenta "APOS Conecta".
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Actualmente, la información de salud del afiliado permanece fragmentada entre los distintos sistemas de los prestadores.
+                        Este proyecto propone la creación de una <strong>Historia de Salud Digital Unificada (HSDU)</strong>.
+                    </p>
+                    
+                    <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg mb-6">
+                        <h4 class="font-bold text-orange-800 mb-1">Visión Estratégica</h4>
+                        <p class="text-sm text-orange-700">
+                            "Garantizar la soberanía de los datos, la seguridad jurídica y la eficiencia prestacional en La Rioja."
                         </p>
                     </div>
                 </div>
                 
-                <div class="mt-12 p-6 bg-orange-50 rounded-xl text-center border border-orange-100">
-                    <p class="text-orange-800 font-medium">
-                        "APOS Conecta garantiza que la salud de los riojanos esté resguardada, accesible y segura."
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        <div class="p-3 bg-blue-100 rounded-full text-blue-600 mb-3">
+                            <i data-lucide="database" width="24"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-700">Datos Unificados</h4>
+                        <p class="text-xs text-gray-500 mt-2">Centralización de información fragmentada.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        <div class="p-3 bg-green-100 rounded-full text-green-600 mb-3">
+                            <i data-lucide="file-check" width="24"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-700">Estándares</h4>
+                        <p class="text-xs text-gray-500 mt-2">HL7 FHIR, SNOMED CT e IPS.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        <div class="p-3 bg-purple-100 rounded-full text-purple-600 mb-3">
+                            <i data-lucide="lock" width="24"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-700">Seguridad Total</h4>
+                        <p class="text-xs text-gray-500 mt-2">Cumplimiento Ley 25.326 y WORM.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        <div class="p-3 bg-orange-100 rounded-full text-orange-600 mb-3">
+                            <i data-lucide="users" width="24"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-700">Empoderamiento</h4>
+                        <p class="text-xs text-gray-500 mt-2">Acceso pleno del afiliado a su historial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-proyecto" class="tab-content hidden animate-fade-in" data-print-title="El Proyecto">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6 border-b border-gray-200 pb-2">Objetivos Generales</h3>
+                    <p class="text-gray-600 mb-6">
+                        El objetivo principal es diseñar e implementar un ecosistema de interoperabilidad centrado en el afiliado, 
+                        desagregado en las siguientes dimensiones estratégicas:
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800">Cumplimiento Normativo:</strong>
+                                <span class="text-gray-600">Estricta observancia de la Ley 25.326 de Protección de Datos Personales. La seguridad no es opcional, es la base legal.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800">Modernización e Identidad Unívoca:</strong>
+                                <span class="text-gray-600">Bus de Interoperabilidad (HL7 FHIR + SNOMED CT) e Índice Maestro de Pacientes (MPI) con RENAPER para evitar duplicidades.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800">Empoderamiento y Privacidad:</strong>
+                                <span class="text-gray-600">Modelo centralizado con alimentación distribuida. APOS custodia la integridad del dato en un Repositorio de Salud (CDR).</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-green-500 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <strong class="text-slate-800">Eficiencia de Recursos:</strong>
+                                <span class="text-gray-600">Auditoría médica en tiempo real para evitar duplicación de estudios y asegurar sostenibilidad financiera.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <i data-lucide="target" class="text-orange-500"></i> Objetivos Específicos
+                        </h4>
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li><strong>Integración Temprana (Mes 12):</strong> Clínicas y hospitales regionales operativos.</li>
+                            <li><strong>Cobertura Progresiva (Mes 18):</strong> 70% de consultas ambulatorias en HSDU.</li>
+                            <li><strong>Reducción de Redundancia:</strong> Base para reducir 50% de duplicación de estudios.</li>
+                            <li><strong>Capacitación:</strong> 100% de usuarios líderes capacitados en Fase II.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <i data-lucide="maximize" class="text-orange-500"></i> Alcance
+                        </h4>
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li><strong>Arquitectura Web:</strong> Acceso vía navegador (Chrome, Edge), sin instalación local.</li>
+                            <li><strong>Cobertura:</strong> Ambulatoria, internación, farmacia (Receta Digital) y laboratorios.</li>
+                            <li><strong>Farmacia:</strong> Trazabilidad del medicamento sin exponer la historia clínica completa.</li>
+                            <li><strong>Estrategia "Day One Forward":</strong> Prioridad en datos nuevos. Digitalización histórica solo bajo demanda crítica.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-etapas" class="tab-content hidden animate-fade-in" data-print-title="Planificación">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">Planificación y Temporalización</h3>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
+                    <thead class="bg-slate-800 text-white">
+                        <tr>
+                            <th class="p-4 font-semibold">Fase</th>
+                            <th class="p-4 font-semibold">Duración</th>
+                            <th class="p-4 font-semibold">Entregables Clave</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-sm">
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-bold text-orange-600">I: Relevamiento y Normalización</td>
+                            <td class="p-4 text-gray-500">Mes 1-4</td>
+                            <td class="p-4 text-gray-600">
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Definición de Estandarización.</li>
+                                    <li>Implementación del MPI (RENAPER).</li>
+                                    <li>Definición legal del Consentimiento Informado Digital.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-bold text-orange-600">II: Desarrollo e Integración</td>
+                            <td class="p-4 text-gray-500">Mes 5-12</td>
+                            <td class="p-4 text-gray-600">
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Desarrollo de Frontend web compatible.</li>
+                                    <li>Implementación de Login Seguro.</li>
+                                    <li>Arquitectura WORM (Almacenamiento inalterable).</li>
+                                    <li>Integración técnica con grandes prestadores.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-4 font-bold text-orange-600">III: Piloto y Despliegue</td>
+                            <td class="p-4 text-gray-500">Mes 13-18</td>
+                            <td class="p-4 text-gray-600">
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Piloto productivo en entorno real.</li>
+                                    <li>Despliegue masivo (sin técnicos in-situ).</li>
+                                    <li>Capacitación del 80% del personal operativo.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-8 grid md:grid-cols-2 gap-6">
+                <div class="p-5 bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <h4 class="font-bold text-slate-800 mb-2">Entregables de Mitigación de Riesgos</h4>
+                    <p class="text-sm text-gray-600 mb-2">Para manejar la resistencia y la seguridad:</p>
+                    <ul class="text-sm text-gray-600 list-disc pl-4">
+                        <li>Protocolo de Consentimiento Informado Validado Legalmente.</li>
+                        <li>Informe de Auditoría Semántica Externa (SNOMED CT).</li>
+                        <li>Mesa de Ayuda (Help Desk) vía WhatsApp para soporte inmediato.</li>
+                    </ul>
+                </div>
+                <div class="p-5 bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <h4 class="font-bold text-slate-800 mb-2">Comité de Gobernanza</h4>
+                    <p class="text-sm text-gray-600">
+                        Se establece el principio de <strong>"Dato Clínico como Garantía de Calidad"</strong>. Una prestación sin registro clínico digital se considera incompleta, impidiendo su validación administrativa.
                     </p>
                 </div>
             </div>
-
         </div>
+
+        <div id="tab-normativa" class="tab-content hidden animate-fade-in" data-print-title="Normativa y Seguridad">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-8 rounded-r-lg">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="scale" class="text-red-600 flex-shrink-0 mt-1"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-red-800 mb-1">Base Legal: Ley 25.326</h3>
+                            <p class="text-red-700 text-sm">
+                                La plataforma debe garantizar que la HSDU sea integral, auténtica, inalterable, perdurable, única, inviolable y recuperable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <section>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Estándares de Interoperabilidad</h3>
+                        <p class="text-gray-600 mb-4">
+                            El proyecto se alinea con el perfil <strong>IPS (International Patient Summary)</strong> promovido por la OMS.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 border border-gray-200 rounded-lg">
+                                <strong class="text-orange-600 block mb-1">HL7 FHIR</strong>
+                                <span class="text-sm text-gray-500">Estándar para el intercambio electrónico de información de salud.</span>
+                            </div>
+                            <div class="p-4 border border-gray-200 rounded-lg">
+                                <strong class="text-orange-600 block mb-1">SNOMED CT</strong>
+                                <span class="text-sm text-gray-500">Codificación de terminología médica para interoperabilidad semántica.</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Tecnologías de Seguridad</h3>
+                        <ul class="space-y-4">
+                            <li class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                                <strong class="text-slate-800 block mb-1">Almacenamiento WORM (Write Once, Read Many)</strong>
+                                <p class="text-sm text-gray-600">Medios no reescribibles que garantizan la inalterabilidad legal de la historia clínica.</p>
+                            </li>
+                            <li class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                                <strong class="text-slate-800 block mb-1">Cifrado y Transporte</strong>
+                                <p class="text-sm text-gray-600">Uso estricto de HTTPS (SSL/TLS) para todo el tráfico de datos vía navegador.</p>
+                            </li>
+                            <li class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                                <strong class="text-slate-800 block mb-1">Consentimiento Informado</strong>
+                                <p class="text-sm text-gray-600">Gestión digital del permiso del paciente para el tratamiento de sus datos sensibles.</p>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-frontend" class="tab-content hidden animate-fade-in" data-print-title="Frontend y UX">
+            <div class="max-w-4xl mx-auto text-center mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Experiencia de Usuario (UI/UX)</h3>
+                <p class="text-gray-600">
+                    Diseñado para ser intuitivo y seguro, accesible desde cualquier navegador estándar.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:-translate-y-1 transition-transform">
+                    <div class="bg-slate-800 p-4 flex justify-center">
+                        <i data-lucide="shield" class="text-orange-400" width="48" height="48"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg mb-2">Acceso Seguro (2FA)</h4>
+                        <p class="text-sm text-gray-600">
+                            Simulación de autenticación de doble factor. El sistema verifica que quien ingresa es realmente el médico autorizado, cumpliendo estándares bancarios aplicados a la salud.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:-translate-y-1 transition-transform">
+                    <div class="bg-slate-800 p-4 flex justify-center">
+                        <i data-lucide="layout-dashboard" class="text-blue-400" width="48" height="48"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg mb-2">Escritorio Médico</h4>
+                        <p class="text-sm text-gray-600">
+                            Interfaz limpia con acceso a "Novedades del Sistema", "Mantenimiento Programado" y "Actualización Vademecum". Pensado para minimizar la carga cognitiva del profesional.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform hover:-translate-y-1 transition-transform">
+                    <div class="bg-slate-800 p-4 flex justify-center">
+                        <i data-lucide="users-round" class="text-green-400" width="48" height="48"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-lg mb-2">Padrón de Afiliados</h4>
+                        <p class="text-sm text-gray-600">
+                            Búsqueda rápida y carga de prestaciones. Validación contra MPI (RENAPER) para asegurar que la información clínica corresponda inequívocamente a la persona correcta.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 p-6 bg-slate-50 rounded-xl text-center border-t border-slate-200">
+                <p class="text-slate-600 text-sm italic">
+                    "La tecnología nunca debe ser una barrera. La interfaz web simplificada garantiza que el enfoque permanezca en el cuidado del paciente, no en la informática."
+                </p>
+            </div>
+        </div>
+
     </main>
     
-    <footer class="bg-white border-t border-gray-200 py-10 flex-shrink-0">
+    <footer class="bg-white border-t border-gray-200 py-10 flex-shrink-0 no-print">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h3 class="text-lg font-bold text-slate-800 mb-1">APOS CONECTA</h3>
             <p class="text-xs text-gray-500 mb-6">Fundación H. Barceló - T.U.A.S.I.M. | Proyecto Académico 2025</p>
-            <div class="text-xs text-gray-400">
-                &copy; Franco Testa
+            <div class="flex justify-center gap-4 text-sm text-gray-400">
+                <span>La Rioja, Argentina</span>
+                <span>•</span>
+                <span>Franco Testa</span>
             </div>
         </div>
     </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOM cargado. Iniciando script integrado...");
 
-    <script src="script.js"></script>
+            // 1. Lógica de Pestañas (Tabs)
+            const setupTabs = () => {
+                const tabButtons = document.querySelectorAll('.tab-btn');
+                const tabContents = document.querySelectorAll('.tab-content');
+
+                if (tabButtons.length === 0) return;
+
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+
+                        const targetId = button.getAttribute('data-target');
+
+                        // Desactivar todos los botones
+                        tabButtons.forEach(btn => {
+                            btn.classList.remove('active-tab', 'text-orange-600', 'border-orange-500');
+                            btn.classList.add('text-gray-500', 'border-transparent');
+                        });
+
+                        // Activar el botón actual
+                        button.classList.add('active-tab', 'text-orange-600', 'border-orange-500');
+                        button.classList.remove('text-gray-500', 'border-transparent');
+
+                        // Ocultar todos los contenidos
+                        tabContents.forEach(content => {
+                            content.style.display = 'none'; // Importante para overridear CSS
+                            content.classList.add('hidden');
+                        });
+
+                        // Mostrar contenido objetivo
+                        const targetContent = document.getElementById(targetId);
+                        if (targetContent) {
+                            targetContent.style.display = 'block'; // Importante para overridear CSS
+                            targetContent.classList.remove('hidden');
+                            
+                            // Re-renderizar iconos en la nueva sección visible
+                            if (typeof lucide !== 'undefined') {
+                                lucide.createIcons({ root: targetContent });
+                            }
+                        }
+                    });
+                });
+            };
+
+            setupTabs();
+
+            // 2. Inicializar Iconos Generales
+            try {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            } catch (error) {
+                console.warn("Lucide icons error:", error);
+            }
+
+            // 3. Lógica de Impresión
+            const printBtn = document.getElementById('printButtonHeader');
+            if (printBtn) {
+                printBtn.addEventListener('click', () => window.print());
+            }
+        });
+    </script>
 </body>
 </html>
